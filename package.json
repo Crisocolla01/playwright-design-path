@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This is the repository for the LinkedIn Learning course **\"Playwright Design Patterns\"** The full course is available from [LinkedIn Learning][lil-course-url].",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js  "
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Crisocolla01/playwright-design-path.git"
@@ -17,7 +19,9 @@
   },
   "homepage": "https://github.com/Crisocolla01/playwright-design-path#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^13.0.0",
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.1"
+    "@types/node": "^25.9.1",
+    "ts-node": "^10.9.2"
   }
 }
