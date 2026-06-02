@@ -1,16 +1,19 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import { page } from '../browserSetup';
+import { LoginPage } from '../page-objects/login-page-new.pom';
 
+let loginPage: LoginPage;
 
 Given("the user is on the login page", async () => {
-    await page.goto('https://binaryville.com/account');
+    loginPage = new LoginPage(page);
+    await loginPage.goto();
 })
 
 When("the user enters valid email and password", async () => {
-    await page.getByRole("textbox", { name: "Email" }).fill("user@example.com");
-    await page.getByRole("textbox", { name: "Password" }).fill("password124");
-    await page.getByRole("button", { name: "Sign in" }).click();
+    await loginPage.emailLocator.fill("user@example.com");
+    await loginPage.passwordLocator.fill("password124");
+    await loginPage.signInButtonLocator.click()
 })
 
 Then("the user should see their email and password in the URL", async () => {
